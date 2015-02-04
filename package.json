@@ -17,6 +17,13 @@
   },
   "homepage": "https://github.com/christophwitzko/github-release-fake-server",
   "devDependencies": {
+    "github": "^0.2.3",
     "standard": "*"
+  },
+  "dependencies": {
+    "body-parser": "^1.11.0",
+    "dot": "^1.0.3",
+    "express": "^4.11.2",
+    "lodash.defaults": "^3.0.0"
   }
 }
