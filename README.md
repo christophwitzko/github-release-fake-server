@@ -2,7 +2,12 @@
 
 ## Install
 
-    $ npm install github-release-fake-server
+    $ npm install github-release-fake-server -g
+
+## Usage
+
+    $ github-release-fake-server -p 4444
+    listening on port 4444
 
 ## Licence
 
