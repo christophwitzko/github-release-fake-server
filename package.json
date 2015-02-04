@@ -1,0 +1,22 @@
+{
+  "name": "github-release-fake-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christophwitzko/github-release-fake-server.git"
+  },
+  "author": "Christoph Witzko <npm@christophwitzko.com> (http://christophwitzko.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christophwitzko/github-release-fake-server/issues"
+  },
+  "homepage": "https://github.com/christophwitzko/github-release-fake-server",
+  "devDependencies": {
+    "standard": "*"
+  }
+}
