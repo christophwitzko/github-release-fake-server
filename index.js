@@ -35,7 +35,8 @@ app.post('/repos/:owner/:repo/releases', function (req, res) {
   var key = owner + ':' + repo
   res.set('Location', 'https://api.github.com/repos/' + owner + '/' + repo + '/releases/1')
   defaults(req.body, defaultReleaseValues, {owner: owner, repo: repo})
-  console.log('setting ->', key)
+  var body = JSON.stringify(req.body.body)
+  req.body.body = body.substr(1, body.length - 2)
   releaseStore[key] = req.body
   res.status(201).send(responseTemplate(req.body))
 })
@@ -44,7 +45,6 @@ app.get('/repos/:owner/:repo/releases/:id', function (req, res) {
   var owner = req.params.owner
   var repo = req.params.repo
   var key = owner + ':' + repo
-  console.log('getting ->', key)
   if (!releaseStore[owner + ':' + repo]) return res.status(404).end()
   res.status(200).send(responseTemplate(releaseStore[owner + ':' + repo]))
 })
