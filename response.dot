@@ -1,0 +1,39 @@
+{
+  "url": "https://api.github.com/repos/{{=it.owner}}/{{=it.repo}}/releases/1",
+  "html_url": "https://github.com/{{=it.owner}}/{{=it.repo}}/releases/v1.0.0",
+  "assets_url": "https://api.github.com/repos/{{=it.owner}}/{{=it.repo}}/releases/1/assets",
+  "upload_url": "https://uploads.github.com/repos/{{=it.owner}}/{{=it.repo}}/releases/1/assets{?name}",
+  "tarball_url": "https://api.github.com/repos/{{=it.owner}}/{{=it.repo}}/tarball/v1.0.0",
+  "zipball_url": "https://api.github.com/repos/{{=it.owner}}/{{=it.repo}}/zipball/v1.0.0",
+  "id": 1,
+  "tag_name": "{{=it.tag_name}}",
+  "target_commitish": "{{=it.target_commitish}}",
+  "name": "{{=it.tag_name}}",
+  "body": "{{=it.body}}",
+  "draft": {{=it.draft}},
+  "prerelease": {{=it.prerelease}},
+  "created_at": "2013-02-27T19:35:32Z",
+  "published_at": "2013-02-27T19:35:32Z",
+  "author": {
+    "login": "{{=it.owner}}",
+    "id": 1,
+    "avatar_url": "https://github.com/images/error/{{=it.owner}}_happy.gif",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/{{=it.owner}}",
+    "html_url": "https://github.com/{{=it.owner}}",
+    "followers_url": "https://api.github.com/users/{{=it.owner}}/followers",
+    "following_url": "https://api.github.com/users/{{=it.owner}}/following{/other_user}",
+    "gists_url": "https://api.github.com/users/{{=it.owner}}/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/{{=it.owner}}/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/{{=it.owner}}/subscriptions",
+    "organizations_url": "https://api.github.com/users/{{=it.owner}}/orgs",
+    "repos_url": "https://api.github.com/users/{{=it.owner}}/repos",
+    "events_url": "https://api.github.com/users/{{=it.owner}}/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/{{=it.owner}}/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "assets": [
+
+  ]
+}

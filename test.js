@@ -26,5 +26,9 @@ github.authenticate({
 })
 
 github.releases.createRelease(release, function (err, res) {
-  console.log(err)
+  console.log('error1:', err)
+  github.releases.getRelease({ owner: 'example', repo: 'test', id: 1}, function (err, res) {
+    console.log('error2:', err)
+    console.log(res)
+  })
 })
