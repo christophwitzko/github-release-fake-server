@@ -1,13 +1,15 @@
 {
   "name": "github-release-fake-server",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "bin": {
-      "github-release-fake-server": "./bin/github-release-fake-server"
+    "github-release-fake-server": "./bin/github-release-fake-server"
   },
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "prepublish": "git fetch --tags && semantic-release pre --no-ci",
+    "postpublish": "semantic-release post --no-ci && git checkout package.json"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "homepage": "https://github.com/christophwitzko/github-release-fake-server",
   "devDependencies": {
     "github": "^0.2.3",
+    "semantic-release": "^1.2.1",
     "standard": "*"
   },
   "dependencies": {
