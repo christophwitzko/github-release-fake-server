@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var argv = require('minimist')(process.argv.slice(2))
+var app = require('../')
+
+var port = argv.p || argv.port || 4343
+
+app.listen(port, function () {
+  console.log('listening on port', port)
+})

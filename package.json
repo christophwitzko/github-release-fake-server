@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+      "github-release-fake-server": "./bin/github-release-fake-server"
+  },
   "scripts": {
     "test": "standard"
   },
@@ -24,6 +27,7 @@
     "body-parser": "^1.11.0",
     "dot": "^1.0.3",
     "express": "^4.11.2",
-    "lodash.defaults": "^3.0.0"
+    "lodash.defaults": "^3.0.0",
+    "minimist": "^1.1.0"
   }
 }

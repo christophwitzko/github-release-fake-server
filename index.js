@@ -20,7 +20,7 @@ var defaultReleaseValues = {
   prerelease: false
 }
 
-var app = express()
+var app = module.exports = express()
 
 app.use(bodyParser.json())
 app.use(function (req, res, next) {
@@ -47,8 +47,4 @@ app.get('/repos/:owner/:repo/releases/:id', function (req, res) {
   console.log('getting ->', key)
   if (!releaseStore[owner + ':' + repo]) return res.status(404).end()
   res.status(200).send(responseTemplate(releaseStore[owner + ':' + repo]))
-})
-
-app.listen(4343, function () {
-  console.log('listening on port 4343')
 })
