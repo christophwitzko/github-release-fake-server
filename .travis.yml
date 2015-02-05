@@ -10,12 +10,14 @@ cache:
   - node_modules
 notifications:
   email: false
+before_install:
+  - npm i -g npm@^2.0.0
 deploy:
   provider: npm
   email: npm@christophwitzko.com
   skip_cleanup: true
   api_key:
-    secure: WA7ytZvrDtFltuIIDagCuGy+mUp/+ek3OgrwqbSZVWMDTnAjhcdhtN8S9pKTdL8pT59LjsoPrEwTBrCkJStXYGCyd85wyxyrRmdmWodxzqopi0xS2RPsa3TpvWuncoOK6DMgTfh/BFAXMIjNLI1ynITdrvDNhcRnApoDFJyssDQ=
+    secure: XNpzUcThEg4RvgwdqNqKoP/WxbllDPZZrcny+T//ioDkQHygz31yc4kzW3X0CJLyd5WKrgi+HChZ+wcrKHpe9c+4xAQvm3f8/9/jyYairCr+SqBg+hatfW8XwuBbFXi8agGJ4xeZDYfLfZzxkWAx0AmDUoRusY/2wsbGOwef55g=
   on:
     branch: master
     repo: christophwitzko/github-release-fake-server
