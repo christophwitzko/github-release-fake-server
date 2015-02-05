@@ -7,9 +7,11 @@
     "github-release-fake-server": "./bin/github-release-fake-server"
   },
   "scripts": {
-    "test": "standard",
-    "prepublish": "git fetch --tags && semantic-release pre --no-ci",
-    "postpublish": "semantic-release post --no-ci && git checkout package.json"
+    "test": "standard && node test | tap-spec",
+    "posttest": "./bin/post-test",
+    "pretest": "./bin/pre-test",
+    "prepublish": "semantic-release pre",
+    "postpublish": "semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -23,8 +25,10 @@
   "homepage": "https://github.com/christophwitzko/github-release-fake-server",
   "devDependencies": {
     "github": "^0.2.3",
-    "semantic-release": "^1.2.1",
-    "standard": "*"
+    "semantic-release": "^2.0.0",
+    "standard": "*",
+    "tap-spec": "^2.2.0",
+    "tape": "^3.5.0"
   },
   "dependencies": {
     "body-parser": "^1.11.0",

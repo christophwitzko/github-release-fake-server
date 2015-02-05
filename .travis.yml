@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+- '0.10'
+sudo: false
+env:
+  global:
+    secure: Vdu+cNB/RCDBsz/En1Ab3ekWimMYVPPw7Q7LAnzASWssMq4h/FW/B7VtAJlXe+qr6R5l0CKnYpW+SrIwS0NcQNBK2LXA23D6kNSY/aUgLy9JiWGHSLi5ekk/UtCTUr5CA0QxfGkuLgiJpNo53TAZUmMh+wkaZc+DXOMYPlyoV18=
+cache:
+  directories:
+  - node_modules
+notifications:
+  email: false
+deploy:
+  provider: npm
+  email: npm@christophwitzko.com
+  skip_cleanup: true
+  api_key:
+    secure: WA7ytZvrDtFltuIIDagCuGy+mUp/+ek3OgrwqbSZVWMDTnAjhcdhtN8S9pKTdL8pT59LjsoPrEwTBrCkJStXYGCyd85wyxyrRmdmWodxzqopi0xS2RPsa3TpvWuncoOK6DMgTfh/BFAXMIjNLI1ynITdrvDNhcRnApoDFJyssDQ=
+  on:
+    branch: master
+    repo: christophwitzko/github-release-fake-server

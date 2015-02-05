@@ -14,7 +14,7 @@ var responseTemplate = dot.template(fs.readFileSync(__dirname + '/response.dot')
 var defaultReleaseValues = {
   tag_name: 'v1.0.0',
   target_commitish: 'master',
-  name: 'v1.0.0',
+  name: '',
   body: '',
   draft: false,
   prerelease: false
@@ -32,9 +32,10 @@ app.use(function (req, res, next) {
 app.post('/repos/:owner/:repo/releases', function (req, res) {
   var owner = req.params.owner
   var repo = req.params.repo
-  var key = owner + ':' + repo
-  res.set('Location', 'https://api.github.com/repos/' + owner + '/' + repo + '/releases/1')
+  var key = owner + '/' + repo
+  res.set('Location', 'https://api.github.com/repos/' + key + '/releases/1')
   defaults(req.body, defaultReleaseValues, {owner: owner, repo: repo})
+  if (!req.body.name) req.body.name = req.body.tag_name
   req.body.body = JSON.stringify(req.body.body)
   req.body.name = JSON.stringify(req.body.name)
   releaseStore[key] = req.body
@@ -44,7 +45,7 @@ app.post('/repos/:owner/:repo/releases', function (req, res) {
 app.get('/repos/:owner/:repo/releases/:id', function (req, res) {
   var owner = req.params.owner
   var repo = req.params.repo
-  var key = owner + ':' + repo
-  if (!releaseStore[owner + ':' + repo]) return res.status(404).end()
-  res.status(200).send(responseTemplate(releaseStore[owner + ':' + repo]))
+  var key = owner + '/' + repo
+  if (!releaseStore[key]) return res.status(404).end()
+  res.status(200).send(responseTemplate(releaseStore[key]))
 })

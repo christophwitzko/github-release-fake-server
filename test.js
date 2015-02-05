@@ -1,34 +1,53 @@
 'use strict'
 
+var test = require('tape')
+
 var GitHubApi = require('github')
 
 var github = new GitHubApi({
   version: '3.0.0',
   port: 4343,
   protocol: 'http',
-  host: '127.0.0.1',
-  debug: true
+  host: '127.0.0.1'
 })
 
-var release = {
+github.authenticate({
+  type: 'oauth',
+  token: '***'
+})
+
+var createRelease = {
   owner: 'example',
   repo: 'test',
-  tag_name: 'v1.0.0',
+  tag_name: 'v2.0.0',
   target_commitish: 'master',
   draft: false,
   prerelease: false,
   body: '*test*\n\n### Feature:'
 }
 
-github.authenticate({
-  type: 'oauth',
-  token: '**********'
+var getRelease = {
+  owner: 'example',
+  repo: 'test',
+  id: 1
+}
+
+test('create new release', function (t) {
+  t.plan(4)
+  github.releases.createRelease(createRelease, function (err, res) {
+    t.error(err, 'no error')
+    t.equal(res.tag_name, createRelease.tag_name, 'tag name')
+    t.equal(res.body, createRelease.body, 'body')
+    t.equal(res.author.login, createRelease.owner, 'user')
+  })
 })
 
-github.releases.createRelease(release, function (err, res) {
-  console.log('error1:', err)
-  github.releases.getRelease({ owner: 'example', repo: 'test', id: 1}, function (err, res) {
-    console.log('error2:', err)
-    console.log(res)
+test('get release', function (t) {
+  t.plan(4)
+  github.releases.getRelease(getRelease, function (err, res) {
+    t.error(err, 'no error')
+    t.equal(res.tag_name, createRelease.tag_name, 'tag name')
+    t.equal(res.body, createRelease.body, 'body')
+    t.equal(res.author.login, createRelease.owner, 'user')
   })
 })

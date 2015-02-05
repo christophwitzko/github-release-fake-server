@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cat .tmp/ghrs.pid | xargs kill
+
+rm -rf .tmp
