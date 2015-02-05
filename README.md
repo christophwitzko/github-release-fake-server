@@ -1,4 +1,5 @@
 # github-release-fake-server
+[![Build Status](https://travis-ci.org/christophwitzko/github-release-fake-server.svg?branch=master)](https://travis-ci.org/christophwitzko/github-release-fake-server)
 
 ## Install
 
