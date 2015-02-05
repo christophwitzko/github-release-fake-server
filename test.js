@@ -17,7 +17,7 @@ var release = {
   target_commitish: 'master',
   draft: false,
   prerelease: false,
-  body: '*test*'
+  body: '*test*\n\n### Feature:'
 }
 
 github.authenticate({

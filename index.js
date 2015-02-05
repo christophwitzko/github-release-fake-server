@@ -35,8 +35,8 @@ app.post('/repos/:owner/:repo/releases', function (req, res) {
   var key = owner + ':' + repo
   res.set('Location', 'https://api.github.com/repos/' + owner + '/' + repo + '/releases/1')
   defaults(req.body, defaultReleaseValues, {owner: owner, repo: repo})
-  var body = JSON.stringify(req.body.body)
-  req.body.body = body.substr(1, body.length - 2)
+  req.body.body = JSON.stringify(req.body.body)
+  req.body.name = JSON.stringify(req.body.name)
   releaseStore[key] = req.body
   res.status(201).send(responseTemplate(req.body))
 })
